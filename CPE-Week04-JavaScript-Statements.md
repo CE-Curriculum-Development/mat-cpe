@@ -18,7 +18,7 @@ One can think of JavaScript statements as the sentences of human language, but p
 1. Once the programmer learns the syntax of all statement types in a language, it becomes much easier for them to navigate even a large program and quickly spot the code they need to modify, add to, or fix.
 2. It becomes much easier to write syntactically correct code and spot errors, leaving more time for functionality design and implementation details.
 
-The concise micro:bit JavaScript reference contains a section on [Statements](https://makecode.microbit.org/javascript/statements).
+The concise micro:bit JavaScript reference contains a section on [Statements](https://makecode.microbit.org/javascript/statements), with entries resolving to the DevDocs website.
 
 _**A note on the language:** The language in which one programs for the micro:bit in the [MakeCode](https://makecode.microbit.org/) environment, is [TypeScript](https://www.typescriptlang.org/docs/home.html). TypeScript is a superset of JavaScript, which means that it has all features of JavaScript, and also has additional features. Most notably, TypeScript allows for static typing, which roughly means that you can declare the exact [type](https://makecode.microbit.org/javascript/types) of all the variables in your program and expect the language environment to warn you when you are assigning the wrong value type to a typed variable, or even error out. In JavaScript, the type of the variable is transparent. Further, the micro:bit TypeScript is only a subset of the full TypeScript, with many advanced features not implemented. All this means that the programmer should have a language reference handy to make sure that a feature in the chosen language is [supported](#references). In this document, we'll keep to the JavaScript language for the micro:bit in MakeCode._
 
@@ -63,7 +63,7 @@ class RainDrop {
     }
     
     move(d : number) {
-        this.y += d                                      // "this" selects the data and method of the particular object
+        this.y += d                                           // "this" selects the data and method of the particular object
     }
 }
         
@@ -71,6 +71,10 @@ let drop : RainDrop = new RainDrop(2, 0, 2)                   // "drop" is an ob
 
 drop.fall()                                                   // calling a method on an object
 ```
+#### Block (-structured) statements
+The curly braces (aka curly brackets) `{  }` denote a _block_ and a _scope_. A block is a sequence of lines of code, executed in order from top to bottom. A _scope_ is a region of validity and visibility for declared entities (see [Declarations](#declarations).
+
+
 
 ### References
 
