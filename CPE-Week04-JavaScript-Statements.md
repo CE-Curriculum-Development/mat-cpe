@@ -40,7 +40,7 @@ const MSU_NAME : string = "Metropolitan State University of Denver" // constant 
 ```
 3. Functions. Functions are named encapsulation of statements. Functions can be called multiple times throught the program. Functions can take in data in the form of arguments, and can also return data. In JavaScript, functions are _first-class_ objects, which roughly means that one can do with them what one does with variables, e.g., pass them in as arguments to other fuctions, return them from functions, make arrays of them, etc.
 ```JavaScript
-function greet(name : string) {                                        // named function with 
+function greet(name : string) {                                        // named function with an argument and a return value
     return greeting + ", " + name + "!"
 }
 input.onButtonPressed(Button.A, function () { isAwake = ! isAwake; })  // anonymous function passed in as argument to an event handler
