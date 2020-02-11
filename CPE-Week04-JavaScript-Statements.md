@@ -63,7 +63,7 @@ class RainDrop {
     }
     
     move(d : number) {
-        this.y += number                                      // "this" selects the data of the particular object
+        this.y += d                                      // "this" selects the data and method of the particular object
     }
 }
         
