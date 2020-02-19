@@ -1,5 +1,5 @@
 # CPE 1040 - Week 4
-## JavaScript Enum Types (Level 1 - Novice) (IN PROGRESS)
+## JavaScript Enum Types (Level 1 - Novice)
 
 Author: Ivo Georgiev, PhD  
 Last edited: 2020-02-19  
