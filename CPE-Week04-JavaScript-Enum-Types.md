@@ -16,55 +16,54 @@ In Week 4, we are introducing two fundamental topics in computer engineering, as
 
 _**A note on the language:** The [current version of JavaScript](https://www.ecma-international.org/publications/standards/Ecma-262.htm) does **not** have `enum` types. Since this is micro:bit-oriented material, we are talking about the [subset of TypeScript](https://makecode.com/language) which is implemented for the micro:bit. TypeScript supports [`enum`](https://www.typescriptlang.org/docs/handbook/basic-types.html#enum)._
 
-Enumerations (aka enums) are collections of names. Contrary to the distinction between variable name and values, with enum types the name is the value.
+Enumerations (aka enums) are collections of names. Contrary to the distinction between variable name and values, with enum types the name **is** the value. One of the most popular and intuitive example for an enum type is:
+
+```JavaScript
+enum Color { Red, Green, Blue, Cyan, Magenta, Yellow, Black }
+
+let carColor : Color = Color.Cyan                               // Gaudy! I bet it's a Cadillac :D
+```
+The type's name is `Color` and the values are `Red`, `Green`, etc. Note their use in a variable declaration. Note also that the following declaration is illegal:
+
+```JavaScript
+let carColor : Color = Cyan                                     // Which "Cyan" are we talking about???
+```
+
+#### micro:bit enums
+
+The JavaScript (ahem, TypeScript) of the MakeCode environment makes extensive user of `enum` types. Here are some examples:
+```JavaScript
+let icon : IconNames = IconNames.Heart
+let jest : Gesture = Gesture.Shake
+let butt : Button = Button.A
+let vcc : DigitalPin = DigitalPin.P0
+let sig : AnalogPin = AnalogPin.P1
+```
 
 #### Integers underneath
 
-Enum type values resolve to integers. Unless assigned explicitly, they start at 0 and continue to n-1, where n is the number of values in the particular type, going in order.
-
+Enum type values resolve to integers. Unless assigned explicitly, they start at 0 and continue to n-1, where n is the number of values in the particular type, and going in order. Run this fun example on your micro:bit to get your feet wet:
 
 ```JavaScript
 // Enumerated type definition (just a bunch of arbitrary names)
 // Conventionally, both the type name and the individual "values"
 // are capitalized
-enum Bench { Flat, DoubleDeck, Park }
+enum Bench { Flat, DoubleDeck, Park }               // Flat resolves to 0, DoubleDeck to 1, and Park to 2
 
 // Global variables
-let sittingPlace: Bench = Bench.DoubleDeck  // Variable of type Bench
-let playThings: Bench[] = [                 // Array with base type Bench
+let sittingPlace: Bench = Bench.DoubleDeck          // Variable of type Bench (resolves to 1)
+let playThings: Bench[] = [                         // Array with base type Bench (resolve to 1, 2, 0, in this order)
     Bench.DoubleDeck,
     Bench.Park,
     Bench.Flat]
-let foos = [                                // Array of functions
-    heart,
-    diamond,
-    duck]
-
-// Function definitions
-function heart() {
-    basic.showIcon(IconNames.Heart)
-}
-
-function diamond() {
-    basic.showIcon(IconNames.Diamond)
-}
-
-function duck() {
-    basic.showIcon(IconNames.Duck)
-}
 
 // Forever loop
 basic.forever(function () {
-    // the following three calls are equivalent (that is, call the same function)
-    heart()                                     // Call a function (note the parentheses)
-    foos[0]()                                   // Call the function from array (again,
-    // note the parentheses)
-    foos[playThings.indexOf(sittingPlace)]()    // Call the function from array 
-    // at the same index as the value 
-    // of sittingPlace is in the 
-    // playThings array, effectively
-    // matching (or mapping) the two
-    // arrays elementwise
+    if (Math.randomBoolean()) {                     // do something (roughly) half of the time, the rest the other thing
+        basic.showNumber(sittingPlace)              // shows 1
+    } else {
+        basic.showNumber(playThings[sittingPlace])  // shows 2 (why?)
+    }
 })
 ```
 
