@@ -59,12 +59,13 @@ let playThings: Bench[] = [                         // Array with base type Benc
 
 // Forever loop
 basic.forever(function () {
-    if (Math.randomBoolean()) {                     // do something (roughly) half of the time, the rest the other thing
+    if (Math.randomBoolean()) {                     // see the explanation of randomBoolean() in the text below
         basic.showNumber(sittingPlace)              // shows 1
     } else {
         basic.showNumber(playThings[sittingPlace])  // shows 2 (why?)
     }
 })
 ```
+##### `Math.randomBoolean()`
 
-
+This function returns `true` or `false` at random. This does not mean strict alternation like `true`, `false`, `true`, `false`, `true`, etc. Instead, you can may see sequences of 2 or more repeated values. This is not hard to spot as you look at what is shown on the LED matrix. The guarantee of `Math.randomBoolean()` is that over a sufficiently long period of time the number of `true` and `false` values returned will be roughly the same.
