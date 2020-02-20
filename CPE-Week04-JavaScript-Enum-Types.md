@@ -45,6 +45,8 @@ let sig : AnalogPin = AnalogPin.P1
 Enum type values resolve to integers. Unless assigned explicitly, they start at 0 and continue to n-1, where n is the number of values in the particular type, and going in order. Run this fun example on your micro:bit to get your feet wet:
 
 ```JavaScript
+// Full program - can run on its own
+
 // Enumerated type definition (just a bunch of arbitrary names)
 // Conventionally, both the type name and the individual "values"
 // are capitalized
