@@ -14,7 +14,7 @@ In Week 3, we are introducing the following topics:
 TODO:
 Transfer from [doc](https://docs.google.com/document/d/1foQX3e02-tlm4wPc3Cn0XllIsEeciJJlq93_DFRITDg/) and add code examples.
 
-Arrays 
+## Arrays 
 
 Arrays are named sequential ordered indexable sets of data elements of the same base type. Let's unpack this mouthful: 
 
@@ -32,7 +32,7 @@ The MakeCode JavaScript Reference has a tiny blurb about arrays under the [Types
 
  
 
-for loops 
+## for loops 
 
 The for loop is a handy language statement for repeated execution which gives the programmer control over the number of times to execute a block of statements. It has specific syntax and various capabilities for stopping, skipping, and indexing.  
 
@@ -42,7 +42,7 @@ The MakeCode JavaScript Reference has the for loop included in the [Statements](
 
  
 
-Classes 
+## Classes 
 
 Classes are *templates* for complex data objects. They can be thought of as cookie cutters, where the cut cookies are the objects. A class is defined with special syntax by the programmer. It contains local data and methods. Thus, classes are *user-defined complex data types*. There is quite a lot to be said about classes and objects, so we'll take it slow. 
 
@@ -52,7 +52,7 @@ The MakeCode JavaScript Reference has a separate page on [Classes](https://makec
 
  
 
-Demo 
+## Demo 
 
 These language features are best demonstrated in working code in a familiar environment. We have created an example on top of the Bouncing Sprite from Assignment 2.  
 
