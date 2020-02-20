@@ -11,9 +11,6 @@ In Week 3, we are introducing the following topics:
 - Loops - the programming language facility for repeated execution
 - Classes - the programming language facility for user-defined data types and the heart of object-oriented programming
 
-TODO:
-Transfer from [doc](https://docs.google.com/document/d/1foQX3e02-tlm4wPc3Cn0XllIsEeciJJlq93_DFRITDg/) and add code examples.
-
 Arrays 
 
 Arrays are named sequential ordered indexable sets of data elements of the same base type. Let's unpack this mouthful: 
