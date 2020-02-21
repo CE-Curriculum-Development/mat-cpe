@@ -56,6 +56,7 @@ xPos = Math.randomRange(0, 4) //assigned a random number from 0-4 to xPos
 yPos = Math.randomRange(0, 4) //assigned a random number from 0-4 to yPos
 flash = Math.randomRange(0, 5) //assigned a random number from 0-5 to flash
 led.plotBrightness(xPos, yPos, brightness[flash])
+
 //each time we run through the loop
 //we send a random x,y coordinate and pick at random one of the six brightness values in our array
 //example. bright[1] returns the value 5 because 5 is stored in element 1
