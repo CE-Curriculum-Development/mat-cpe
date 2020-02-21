@@ -27,8 +27,8 @@ Arrays are named sequential ordered indexable sets of data elements of the same 
 
 The MakeCode JavaScript Reference has a tiny blurb about arrays under the [Types](https://makecode.microbit.org/javascript/types) section. The DevDocs JavaScript Reference has a much more extensive entry on [Arrays](https://devdocs.io/javascript/global_objects/array). Note that the examples can be copy-and-pasted into the MakeCode editor to play with. *Don't forget the "forever" loop is needed to see things happen many times! :D* 
 
-# *Code Example* 
- Micro:bit code[HurrayArray](https://gist.github.com/AKA-turtle/082499da16049fe0e32e2f44c5378071)
+## Code Example
+Micro:bit code[HurrayArray](https://gist.github.com/AKA-turtle/082499da16049fe0e32e2f44c5378071)
 
 ## for loops 
 
