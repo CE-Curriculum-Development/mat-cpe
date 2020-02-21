@@ -30,20 +30,28 @@ The MakeCode JavaScript Reference has a tiny blurb about arrays under the [Types
 ## *Code Example*
 Micro:bit code[HurrayArray](https://gist.github.com/AKA-turtle/082499da16049fe0e32e2f44c5378071)
 
+
 ```typescript
+//Full program - can run on it's own
+
 //Hurray for Arrays!
 //Arrays are a simple yet powerful way to deal with
 //a single variable that is used to store different elements
 //for example
+
 let brightness: number[] = [0, 5, 15, 40, 120, 200]
+
 //"brightness" is our array
 //the array called "brightness" has 6 elements 0,5,15...etc
 //in this case our elements are numbers because we defined it with the ":number"
 //but arrays can hold any data type including strings and other arrays
+
 let flash: number = 0 //this variable is going to help us choose an element from our array
 let xPos: number = 0 //xPos is going to be used to pass our X coordinate to the plotBrightness function
 let yPos: number = 0 //yPos is going to be used to pass our Y coordinate to the plotBrightness function
+
 basic.forever(function () {
+
 xPos = Math.randomRange(0, 4) //assigned a random number from 0-4 to xPos
 yPos = Math.randomRange(0, 4) //assigned a random number from 0-4 to yPos
 flash = Math.randomRange(0, 5) //assigned a random number from 0-5 to flash
