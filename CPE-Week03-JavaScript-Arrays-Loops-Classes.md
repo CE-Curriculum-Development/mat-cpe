@@ -31,16 +31,13 @@ The MakeCode JavaScript Reference has a tiny blurb about arrays under the [Types
 This program will randomly light up the LED array in an interesting way
 
 
-```typescript
-//Full program - can run on it's own
-
+```TypeScript
 //Hurray for Arrays!
 //Arrays are a simple yet powerful way to deal with
 //a single variable that is used to store different elements
 //for example
 
 let brightness: number[] = [0, 5, 15, 40, 120, 200]
-
 //"brightness" is our array
 //the array called "brightness" has 6 elements 0,5,15...etc
 //in this case our elements are numbers because we defined it with the ":number"
@@ -51,18 +48,21 @@ let xPos: number = 0 //xPos is going to be used to pass our X coordinate to the 
 let yPos: number = 0 //yPos is going to be used to pass our Y coordinate to the plotBrightness function
 
 basic.forever(function () {
+    xPos = Math.randomRange(0, 4) //assigned a random number from 0-4 to xPos
+    yPos = Math.randomRange(0, 4) //assigned a random number from 0-4 to yPos
+    flash = Math.randomRange(0, 5) //assigned a random number from 0-5 to flash
 
-xPos = Math.randomRange(0, 4) //assigned a random number from 0-4 to xPos
-yPos = Math.randomRange(0, 4) //assigned a random number from 0-4 to yPos
-flash = Math.randomRange(0, 5) //assigned a random number from 0-5 to flash
-led.plotBrightness(xPos, yPos, brightness[flash])
+    led.plotBrightness(xPos, yPos, brightness[flash])
+    //each time we run through the loop
+    //we send a random x,y coordinate and pick at random one of the six brightness values in our array
+    //example. bright[1] returns the value 5 because 5 is stored in element 1
+    //example. bright[flash] could return any value from our array 
+    //example. since flash is randomly changing values from 0-5
 
-//each time we run through the loop
-//we send a random x,y coordinate and pick at random one of the six brightness values in our array
-//example. bright[1] returns the value 5 because 5 is stored in element 1
-//example. bright[flash] could return any value from our array 
-//example. since flash is randomly changing values from 0-5
+
 })
+
+
 ```
 
 
