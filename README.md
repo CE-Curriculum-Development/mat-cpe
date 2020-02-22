@@ -10,7 +10,8 @@ Code: _Each individual document has its own code._
 
 | Material | Week |
 | --- | --- |
-| [Arrays, Loops, and Classes](https://github.com/ivogeorg/mat-cpe/blob/master/CPE-Week03-JavaScript-Arrays-Loops-Classes.md) | Week 3 |
-| [Statements](https://github.com/ivogeorg/mat-cpe/blob/master/CPE-Week04-JavaScript-Statements.md) | Week 4 |
-| [`enum` types](https://github.com/ivogeorg/mat-cpe/blob/master/CPE-Week04-JavaScript-Enum-Types.md) | Week 4 |
-| [First-class functions](https://github.com/ivogeorg/mat-cpe/blob/master/CPE-Week05-First-Class-Functions.md) | Week 5 | 
+| [Arrays and Loops](CPE-Week03-JavaScript-Arrays-Loops-Classes.md) | Week 3 |
+| [Statements](CPE-Week04-JavaScript-Statements.md) | Week 4 |
+| [`enum` types](CPE-Week04-JavaScript-Enum-Types.md) | Week 4 |
+| [First-class functions](CPE-Week05-First-Class-Functions.md) | Week 5 | 
+| [Classes](CPE-Week06-Classes.md) | Week 6 |
