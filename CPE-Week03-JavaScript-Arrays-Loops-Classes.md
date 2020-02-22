@@ -65,10 +65,9 @@ basic.forever(function () {
 ```
 
 
-## for loops 
+## `for` loops 
 
 The for loop is a handy language statement for repeated execution which gives the programmer control over the number of times to execute a block of statements. It has specific syntax and various capabilities for stopping, skipping, and indexing.  
-
  
 
 The MakeCode JavaScript Reference has the for loop included in the [Statements](https://makecode.microbit.org/javascript/statements) section. It just refers to the DevDocs Reference page on the [for](https://makecode.microbit.org/javascript/statements)[ loop](https://makecode.microbit.org/javascript/statements). Note that some examples can be executed in-place in the browser page. *You might need to scroll down in the example box to see the Run and Reset buttons.* 
