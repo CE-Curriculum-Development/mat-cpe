@@ -7,7 +7,7 @@ Last update: 2020-02-21
 Code: 6cee6577335b94d0ac3ffdf9b32e5d0c349d1b72    
 
 In Week 6, we are introducting the following topics: 
-- [The transistor](https://docs.google.com/document/d/1KpK2u7tlg9IpjeqpNTxizabOwoFxsuq-k4WMEPzzcE4/ – A circuit-level switch and the most important active element in electronics
+- [The transistor](https://docs.google.com/document/d/1KpK2u7tlg9IpjeqpNTxizabOwoFxsuq-k4WMEPzzcE4/) – A circuit-level switch and the most important active element in electronics
 - [Memory]() – How do we build one of the fundamental components of computers?
 - [Processor]() - How do we build the heart of the computer?
 - [Classes]() - The programming language facility for user-defined data types and the heart of object-oriented programming
