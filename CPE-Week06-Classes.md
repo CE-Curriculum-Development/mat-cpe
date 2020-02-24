@@ -53,5 +53,38 @@ Here, the _base_ (that is, the already existing) class which we are extending is
 
 ### 2. Defining the halo
 
+The only way we want to change the base `game.LedSprite` is to add an _optional_ "halo" around it as it moves. The halo is just the surrounding 8 positions around the current position of the sprite, lit with lower brightness than the sprite itself. In terms of data, we need to add only two things to our derived class that don't exist in the base class: 
+  1. `hasHalo` variable for whether the sprite has a halo or not, so just a `boolean`; and   
+  2. `adjArr` for the description of the halo positions relative to the sprite position, so an array.   
 
+The code for the `boolean` is straightforward:
 
+```TypeScript
+class BouncySprite extends game.LedSprite {
+    hasHalo : boolean = false
+  
+}
+```
+We define the extra variable right inside the block statement (and scope) of the class.   
+
+The array of halo positions is a _two-dimensional_ array, that is, an array of arrays. This doesn't change anything significant about the array, except that it will have a two array index operators `[][]` when we want a value from the inner arrays. Let's see the code:
+
+```TypeScript
+class BouncySprite extends game.LedSprite {
+    hasHalo : boolean = false
+
+    private adjArr = [
+        [0, -1, 0.67],
+        [0, 1, 0.67],
+        [-1, 0, 0.67],
+        [1, 0, 0.67],
+        [-1, -1, 0.40],
+        [-1, 1, 0.40],
+        [1, -1, 0.40],
+        [1, 1, 0.40]
+    ]  
+}
+```
+Each of the inner arrays contains, in this order, an additive x offset, a additive y offset, and a multiplicative brightness coefficient. They can be applied to any sprite at current position `(x, y)` and brightness `b` to light up one of the adjacent positions from the halo. For the first inner array, this will result in `(x, y - 1, b * 0.67)`. This is how we get the halo!  
+
+### 3. Drawing the halo
