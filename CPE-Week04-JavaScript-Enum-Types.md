@@ -70,4 +70,4 @@ basic.forever(function () {
 ```
 ##### `Math.randomBoolean()`
 
-This function returns `true` or `false` at random. This does not mean strict alternation like `true`, `false`, `true`, `false`, `true`, etc. Instead, you can may see sequences of 2 or more repeated values. This is not hard to spot as you look at what is shown on the LED matrix. The guarantee of `Math.randomBoolean()` is that over a sufficiently long period of time the number of `true` and `false` values returned will be roughly the same.
+This function returns `true` or `false` at random. This does not mean strict alternation like `true`, `false`, `true`, `false`, `true`, etc. Instead, you may see sequences of 2 or more repeated values. This is not hard to spot as you look at the LED matrix. The guarantee of `Math.randomBoolean()` is that over a sufficiently long period of time the number of `true` and `false` values returned will be approximately equal.
