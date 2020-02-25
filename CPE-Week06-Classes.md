@@ -1,6 +1,6 @@
 # CPE 1040 - Spring 2020
 
-## JavaScript Classes (Level 2 - Intermediate) (IN PROGRESS)
+## JavaScript Classes (Level 2 - Intermediate)
 
 Author: Ivo Georgiev, PhD  
 Last update: 2020-02-24  
@@ -181,11 +181,11 @@ class BouncySprite extends game.LedSprite {
 }
 ```
 
-We need to draw the halo after the sprite moves (that is, at the new location) but before the `move` method exits. So, in our `move` method we first call the one from the base class (aka called a _superclass_) with the keyword `super` and only then, if we are supposed to have a halo, call our method `halo`. Inside a class block, we need to use the keyword `this` before every class datum we want to manipulate and every class method we want to call. Therefore, we have `if (this.hasHalo) this.halo()`.
+We need to draw the halo after the sprite moves (that is, at the new location) but before the `move` method exits. So, in our `move` method we first call the one from the base class (aka called a _superclass_) with the keyword `super` and only then, if we are supposed to have a halo, call our method `halo`. From _inside_ a class block, we need to use the keyword `this` before every class datum we want to manipulate and every class method we want to call. Therefore, we have `if (this.hasHalo) this.halo()`.
 
 ### 4. Instantiating a class
 
-Objects are variables of complex user-defined types. It is also said that they are _instantiations_ of a class. Remember how a class is _template_ for objects. So, objects are the actual products defined by the template. We use the `new` keyword to create a new `Bouncy Sprite` object.
+Objects are variables of complex user-defined types. It is also said that they are _instantiations_ of a class. Remember how a class is _template_ for objects. So, objects are the actual products defined by the template. We use the `new` keyword to create a new `Bouncy Sprite` object. What does `new` do? It invokes the _constructor_ of the class to make a new object by calling the eponymous method:
 
 ```TypeScript
 class BouncySprite extends game.LedSprite {
@@ -193,8 +193,56 @@ class BouncySprite extends game.LedSprite {
    
    // methods
    
-   constructor(x : number, y : number) {
+   constructor(x : number = 2, y : number = 2) {
       super(x, y)
    }
 }
+```
+
+As you can see, `super` can be used on its own to call the base class constructor. In our case, that's all we do. If we wanted to initialize our `BouncySprite` with, say, a particular value for `hasHalo`, we would instead have the following constructor:
+
+```TypeScript
+class BouncySprite extends game.LedSprite {
+   // variables
+   
+   // methods
+   
+   constructor(x : number = 2, y : number = 2, hasHalo : boolean = true) {
+      super(x, y)
+      this.hasHalo = hasHalo
+   }
+}
+```
+
+Notice the _default_ values that we declare in the constructor. This allows us to call it without any arguments, if we don't want different values, as follows:
+
+```TypeScript
+let sprite : BouncySprite = new BouncySprite()
+```
+
+This is just a variable declaration with type `BouncySprite` (remember, classes are user-define _types_), and an assignment to it of a newly constructor `BouncySprite` object at location (2, 2) and with a halo. How that we have a hallowed sprite (just kidding :D), we can use it just as the vanilla sprites from the base class:
+
+```TypeScript
+basic.forever(function () {
+    sprite.move(1)
+    sprite.ifOnEdgeBounce()
+    basic.pause(50)
+})
+```
+
+### 5. Turning the halo on and off
+
+The halo of our `BouncySprite` can be turned on and off by assigning `true` or `false` to the sprite objects `hasHalo`, as we do in the event handler for the button B press:
+
+```TypeScript
+input.onButtonPressed(Button.B, function () {
+    sprite.hasHalo = !sprite.hasHalo
+})
+```
+
+In this case, we use button B to _toggle_ the halo on and off.
+
+---
+
+That's all, folks! Oink!
 
