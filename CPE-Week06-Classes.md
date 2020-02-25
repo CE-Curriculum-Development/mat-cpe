@@ -88,3 +88,113 @@ class BouncySprite extends game.LedSprite {
 Each of the inner arrays contains, in this order, an additive x offset, a additive y offset, and a multiplicative brightness coefficient. They can be applied to any sprite at current position `(x, y)` and brightness `b` to light up one of the adjacent positions from the halo. For the first inner array, this will result in `(x, y - 1, b * 0.67)`. This is how we get the halo!  
 
 ### 3. Drawing the halo
+
+The motion of the sprite is essentially plotting and unplotting LED positions along a line. This is done by the function `move` of the sprite base class. So, we need to draw the halo at each call to `move`. First, we need to define a new method in our derived class `BouncySprite` which encapsulates the drawing of the halo. Here's the code:
+
+```TypeScript
+class BouncySprite extends game.LedSprite {
+    hasHalo : boolean = false
+
+    private adjArr = [
+        [0, -1, 0.67],
+        [0, 1, 0.67],
+        [-1, 0, 0.67],
+        [1, 0, 0.67],
+        [-1, -1, 0.40],
+        [-1, 1, 0.40],
+        [1, -1, 0.40],
+        [1, 1, 0.40]
+    ]  
+
+    private halo() {
+        // get the current position and brightness
+        let x = this.get(LedSpriteProperty.X)
+        let y = this.get(LedSpriteProperty.Y)
+        let b = this.get(LedSpriteProperty.Brightness)
+        
+        // plot halo
+        for (let i = 0; i < this.adjArr.length; i++)
+            led.plotBrightness(x + this.adjArr[i][0],
+                y + this.adjArr[i][1],
+                b * this.adjArr[i][2])
+
+        // ugly but otherwise halo is invisible
+        basic.pause(5)
+        
+        // unplot halo
+        for (let i = 0; i < this.adjArr.length; i++)
+            led.unplot(x + this.adjArr[i][0],
+                y + this.adjArr[i][1])
+    }
+}
+```
+
+The `halo` method is quite straightforward:
+  1. First, it takes the current position and brightness level of the sprite.
+  2. Then, it cycles through the adjacent halo positions and draws them. _Notice how we add the offsets to the coordinates and multiply the brightness with the coefficient._
+  3. Finally, after a pause, it again cycles through the halo positions to turn them off. _This ensures that the halo follows the motion of the sprite and we don't have halos left behind along its trajectory._
+  
+The `halo` method declared `private`, which means that we don't want to allow code ourside the class to make direct calls to it. We only want to call it from inside, specifically in the `move` method.
+
+The base class has a `move` method, so we need to _override_ it to draw the halo. This is what it looks like in the code:
+
+```TypeScript
+class BouncySprite extends game.LedSprite {
+    hasHalo : boolean = false
+
+    private adjArr = [
+        [0, -1, 0.67],
+        [0, 1, 0.67],
+        [-1, 0, 0.67],
+        [1, 0, 0.67],
+        [-1, -1, 0.40],
+        [-1, 1, 0.40],
+        [1, -1, 0.40],
+        [1, 1, 0.40]
+    ]  
+
+    private halo() {
+        // get the current position and brightness
+        let x = this.get(LedSpriteProperty.X)
+        let y = this.get(LedSpriteProperty.Y)
+        let b = this.get(LedSpriteProperty.Brightness)
+        
+        // plot halo
+        for (let i = 0; i < this.adjArr.length; i++)
+            led.plotBrightness(x + this.adjArr[i][0],
+                y + this.adjArr[i][1],
+                b * this.adjArr[i][2])
+
+        // ugly but otherwise halo is invisible
+        basic.pause(5)
+        
+        // unplot halo
+        for (let i = 0; i < this.adjArr.length; i++)
+            led.unplot(x + this.adjArr[i][0],
+                y + this.adjArr[i][1])
+    }
+    
+    move(z: number) {
+        super.move(z)
+        if (this.hasHalo) this.halo()
+    }
+}
+```
+
+We need to draw the halo after the sprite moves (that is, at the new location) but before the `move` method exits. So, in our `move` method we first call the one from the base class (aka called a _superclass_) with the keyword `super` and only then, if we are supposed to have a halo, call our method `halo`. Inside a class block, we need to use the keyword `this` before every class datum we want to manipulate and every class method we want to call. Therefore, we have `if (this.hasHalo) this.halo()`.
+
+### 4. Instantiating a class
+
+Objects are variables of complex user-defined types. It is also said that they are _instantiations_ of a class. Remember how a class is _template_ for objects. So, objects are the actual products defined by the template. We use the `new` keyword to create a new `Bouncy Sprite` object.
+
+```TypeScript
+class BouncySprite extends game.LedSprite {
+   // variables
+   
+   // methods
+   
+   constructor(x : number, y : number) {
+      super(x, y)
+   }
+}
+
